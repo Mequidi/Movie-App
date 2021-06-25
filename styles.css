@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
 *,
 ::after,
 ::before{
@@ -20,8 +23,13 @@ main{
 header{
     background-color:#373B69;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 1.5rem;
+}
+header h2{
+    color: #708ED2;
+    font-size: 30px;
+    letter-spacing: 3px;
 }
 .search{
     background-color: transparent;
@@ -32,26 +40,30 @@ header{
     color: #708ED2;
 }
 .search::placeholder{
-    color: #272532;
-    transition: all 0.3s linear;
-}
-.search:hover::placeholder{
     color: #708ED2;
+    transition: all 0.3s linear;
 }
 .search:focus{
     outline: none;
+    background-color: #272532;
 }
 .movie-container{
+    position: relative;
     width: 300px;
     background-color: #373B69; 
     margin: 1rem;
     border-radius: 3px;
     box-shadow: 0 15px 15px rgba(0, 0, 0, 0.3);
+    overflow:hidden;
+}
+.movie-container:hover .overview{
+    transform: translateY(0);
 }
 .movie-container img{
     width: 100%;
     height: 400px;
     object-fit: cover;
+    background-color: inherit;
     
 }
 .movie-info{
@@ -81,4 +93,48 @@ header{
 }
 .yellow{
     color: orange;
+}
+.image{
+    background-color: transparent;
+}
+.overview{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: inherit;
+    transform: translateY(101%);
+    transition: transform 0.4s linear;
+    font-family:sans-serif;
+    padding: 2rem;
+}
+.overview h2{
+    margin-bottom: 2rem;
+    font-family:'Bebas Neue', cursive;
+    letter-spacing: 3px;
+    border-bottom: 2px solid white;
+}
+footer{
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+}
+.btn{
+    background-color: #373B69;
+    padding: 8px 10px;
+    border: transparent;
+    margin: 0.5rem;
+    box-shadow: 0 15px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    color: white;
+    font-size: 20px;
+    transition: all 0.1s linear;
+}
+.btn:hover{
+    transform: scale(1.2);
+    background-color: #505696;
+   
 }
