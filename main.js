@@ -28,15 +28,17 @@ getMovies(apiUrl);
 
 prevBtn.addEventListener("click",()=>{
     
+    currentPage--;
     if(currentPage<1)
         currentPage=1; 
-    else currentPage--;
     
     if(!submitText)
         getMovies(getApiUrl(currentPage));
     else    
         getMovies(getSearchApiPath(currentPage)+submitText);
-    window.scrollTo({left:0,top:0});
+    // window.scrollTo({left:0,top:0});
+    // window.location.reload();
+    ScrollOrReload();
 })
 
 nextBtn.addEventListener("click",()=>{
@@ -49,7 +51,8 @@ nextBtn.addEventListener("click",()=>{
         getMovies(getApiUrl(currentPage));
     else    
         getMovies(getSearchApiPath(currentPage)+submitText);
-    window.scrollTo({left:0,top:0});
+    // window.scrollTo({left:0,top:0});
+    ScrollOrReload();
 })
 
 numbBtns.forEach((btn,index)=>{
@@ -65,10 +68,17 @@ numbBtns.forEach((btn,index)=>{
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
-    title.textContent = `Search for "${search.value}" Movies`
     submitText = search.value;
     currentPage = 1;
-    getMovies(searchApiPath+submitText)
+    if(submitText  === "")
+    {
+        title.textContent = "Upcoming movies"
+        getMovies(apiUrl);
+    }
+    else{
+        title.textContent = `Search for "${search.value}" Movies`
+        getMovies(searchApiPath+submitText);
+    }
 })
 
 const showMovies = (movies) =>{
@@ -123,4 +133,10 @@ function getApiUrl(current){
 
 function getSearchApiPath(current){
     return `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=en-US&page=${current}&query=`;
+}
+function ScrollOrReload(){
+    if(window.screen.width<500)
+        window.location.reload();
+    else
+        window.scrollTo({left:0,top:0});
 }

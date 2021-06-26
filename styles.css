@@ -162,3 +162,17 @@ footer{
     background:#82a4f5; 
   }
   
+@media(max-width:500px)
+{
+    header{
+        justify-content: center;
+    }
+    .title
+    {
+        margin-bottom: 1rem;
+    }
+    .btn{
+        margin: 0.2rem;
+        padding: 0.4rem 0.6rem;
+    }
+}
