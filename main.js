@@ -13,6 +13,7 @@ const search = document.getElementById("search");
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 const numbBtns = document.querySelectorAll(".numbered-btn .btn")
+const title = document.querySelector(".title");
 
 const getMovies = (url) =>{
     fetch(url)
@@ -64,6 +65,7 @@ numbBtns.forEach((btn,index)=>{
 
 form.addEventListener("submit",(e)=>{
     e.preventDefault();
+    title.textContent = `Search for "${search.value}" Movies`
     submitText = search.value;
     currentPage = 1;
     getMovies(searchApiPath+submitText)

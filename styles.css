@@ -30,6 +30,7 @@ header h2{
     color: #708ED2;
     font-size: 30px;
     letter-spacing: 3px;
+    text-transform: capitalize;
 }
 .search{
     background-color: transparent;
