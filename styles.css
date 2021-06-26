@@ -66,7 +66,6 @@ header h2{
     height: 400px;
     object-fit: cover;
     background-color: inherit;
-    
 }
 .movie-info{
     display: flex;
@@ -112,6 +111,7 @@ header h2{
     padding: 2rem;
     overflow: auto;
 }
+
 .overview h2{
     margin-bottom: 2rem;
     font-family:'Bebas Neue', cursive;
@@ -161,6 +161,31 @@ footer{
   ::-webkit-scrollbar-thumb:hover {
     background:#82a4f5; 
   }
+  .preloader-container{
+    position:fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background-color:#272532;
+    transition: z-index 0.3s linear;
+    visibility: visible;
+}
+.preloader-container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.hide-preloader{
+    visibility: hidden;
+    z-index: -999;
+}
   
 @media(max-width:500px)
 {
@@ -175,4 +200,10 @@ footer{
         margin: 0.2rem;
         padding: 0.4rem 0.6rem;
     }
+    .movie-container:hover .overview{
+        transform: translateY(101%);
+    }  
+    .show-overview{
+        transform: translateY(0) !important;
+    }  
 }
