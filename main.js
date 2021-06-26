@@ -15,6 +15,7 @@ const nextBtn = document.querySelector(".next-btn");
 const numbBtns = document.querySelectorAll(".numbered-btn .btn")
 const title = document.querySelector(".title");
 const preloader = document.querySelector(".preloader-container")
+const btn = document.querySelectorAll(".btn");
 
 window.addEventListener("load", () => {
     preloader.classList.add("hide-preloader");
@@ -31,6 +32,12 @@ const getMovies = (url) => {
 
 getMovies(apiUrl);
 
+// btn.forEach((btn)=>{
+//     btn.addEventListener("click",()=>{
+//         // ScrollOrReload();
+//     })
+// })
+
 prevBtn.addEventListener("click", () => {
 
     currentPage--;
@@ -41,7 +48,7 @@ prevBtn.addEventListener("click", () => {
         getMovies(getApiUrl(currentPage));
     else
         getMovies(getSearchApiPath(currentPage) + submitText);
-    ScrollOrReload();
+    window.scrollTo({left:0,top:0});
 })
 
 nextBtn.addEventListener("click", () => {
@@ -54,8 +61,7 @@ nextBtn.addEventListener("click", () => {
         getMovies(getApiUrl(currentPage));
     else
         getMovies(getSearchApiPath(currentPage) + submitText);
-    // window.scrollTo({left:0,top:0});
-    ScrollOrReload();
+    window.scrollTo({left:0,top:0});
 })
 
 numbBtns.forEach((btn, index) => {
@@ -65,8 +71,8 @@ numbBtns.forEach((btn, index) => {
             getMovies(getApiUrl(currentPage));
         else
             getMovies(getSearchApiPath(currentPage) + submitText);
-        ScrollOrReload();
     })
+    window.scrollTo({left:0,top:0});
 })
 
 form.addEventListener("submit", (e) => {
@@ -82,6 +88,7 @@ form.addEventListener("submit", (e) => {
     }
 })
 const showMovies = (movies) => {
+    
     main.innerHTML = "";
     totalPages = movies.total_pages;
     movies.results.forEach((movie) => {
