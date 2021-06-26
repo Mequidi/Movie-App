@@ -108,12 +108,14 @@ header h2{
     transition: transform 0.4s linear;
     font-family:sans-serif;
     padding: 2rem;
+    overflow: auto;
 }
 .overview h2{
     margin-bottom: 2rem;
     font-family:'Bebas Neue', cursive;
     letter-spacing: 3px;
     border-bottom: 2px solid white;
+    max-height: 100%;
 }
 footer{
     height: 5rem;
@@ -138,3 +140,23 @@ footer{
     background-color: #505696;
    
 }
+::-webkit-scrollbar {
+    width: 15px;
+} 
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background:#272532;
+    width: 18px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #708ED2;
+    border-radius: 2px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background:#82a4f5; 
+  }
+  
